@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projek Kelompok-4 ITB06</title>
+
+    <!-- WEB FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		
+	<!-- BOOTSTRAP -->
+	<link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="{{url_for('static', filename = 'css/font-awesome.min.css')}}">
+	<!-- CUSTOM STYLING -->
+	<link href="{{url_for('static', filename = 'css/styles.css')}}" rel="stylesheet">
+	<!-- PRELOADER -->	
+	<link href="{{url_for('static', filename = 'css/loader.css')}}" rel="stylesheet">
+
+
+</head>
+<body>
+    <section id="header">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8">
+                    <h1 class="white-text">Selamat Datang di Projek Kami,</h1>
+                    <h1 class="white-text">Memprediksi Kondisi Stasiun di DKI Jakarta</h1>
+                    <h5 class="white-text">dengan metode Klasifikasi Logistik Biner.</h5>
+                    <div id="countdown" class="white-text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="animation">
+        <a class="arrow-down-animation" data-scroll href="#about"><i class="fa fa-angle-down"></i></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="row text-center">
+                <h2>Prediksi stasiunmu sekarang</h2>
+                <form method="post" action="/">
+                    <p>Partikulat</p>
+                    <p><input type="number" name="x1"></p>
+                    <p>Sulfuida</p>
+                    <p><input type="number" name="x2"></p>
+                    <p>Karbon Monoksida</p>
+                    <p><input type="number" name="x3"></p>
+                    <p>Ozon</p>
+                    <p><input type="number" name="x4"></p>
+                    <p>Nitrogen dikosida</p>
+                    <p><input type="number" name="x5"></p>
+                    <p>Nilai Ukur Tertinggi dari seluruh parameter yang sama</p>
+                    <p><input type="number" name="x6"></p>
+                    <p>Parameter Pengukuran Tertinggi</p>
+                    <select name="x7">
+                        <option value="O3">O3</option>
+                        <option value="PM10">PM10</option>
+                        <option value="PM25">PM25</option>
+                        <option value="PM26">PM26</option>
+                    </select>
+                    <p>Lokasi</p>
+                    <select name="x8"> 
+                        <option value="DKI2">DKI2</option>
+                        <option value="DKI3">DKI3</option>
+                        <option value="DKI4">DKI4</option>
+                        <option value="DKI5">DKI5</option>
+                    </select>
+                   <p><input type="submit" value="Prediksi"></p>
+                </form>
+                <p class="red-text"> *note : hasil prediksi terdapat pada bagian akhir halaman</p>
+            </div>
+        </div>			
+    </section>
+    
+    {%if myklaster %}
+    <section id="about">
+        <div class="container">
+            <div class="row text-center">
+                <p>Kualitas udara di Stasiun {{ Stasiunn }} diprediksi dalam keadaan {{ prediksi }}</p> 
+            </div>
+        </div>			
+    </section>
+        
+    {%endif%}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+		<!-- SMOOTH SCROLL -->
+		<script src="{{url_for('static', filename = 'js/smooth-scroll.min.js')}}"></script>
+		<!-- PARALLAX IMG -->
+		<script src="{{url_for('static', filename = 'js/jquery.parallax-1.1.3.js')}}"></script>
+		<!-- SCROLL REVEAL -->
+		<script src="{{url_for('static', filename = 'js/scrollReveal.min.js')}}"></script>
+		<!-- FUNCTIONS -->
+		<script src="{{url_for('static', filename = 'js/functions.js')}}"></script>
+</body>
+</html>
